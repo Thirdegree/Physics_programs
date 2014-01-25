@@ -1,10 +1,8 @@
 import System.Environment
-import Data.Bits
 
-xProduct [(a,b,c),(d,e,f)] = ((b*f - e*c), -1*(a*f - d*c), (a*e - d*b))
-
+dotProduct [(a,b,c),(d,e,f)] = sum [a*d, b*e, c*f]
 
 main = do
 	args <- getArgs
 	let vectors = map (\t -> read t::(Double, Double, Double)) args
-	print $ xProduct vectors
+	print $ dotProduct vectors
